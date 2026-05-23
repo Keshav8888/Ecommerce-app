@@ -17,6 +17,37 @@ if(!token || role !== "ROLE_ADMIN"){
     "login.html";
 }
 
+/* SUCCESS POPUP */
+
+const successPopup =
+document.getElementById("successPopup");
+
+const successMessage =
+document.getElementById("successMessage");
+
+const closeSuccessPopup =
+document.getElementById("closeSuccessPopup");
+
+function showSuccessPopup(message){
+
+    successMessage.innerText =
+    message;
+
+    successPopup.style.display =
+    "flex";
+}
+
+closeSuccessPopup.addEventListener(
+
+    "click",
+
+    function(){
+
+        successPopup.style.display =
+        "none";
+    }
+);
+
 /* LOAD Orders */
 
 async function loadOrders(){
@@ -204,9 +235,12 @@ async function updateStatus(id, status){
 
         if(response.ok){
 
-            alert(
+            /*alert(
                 "Order Status Updated"
-            );
+            );*/
+			showSuccessPopup(
+			    "Order Status Updated"
+			);
 
             loadOrders();
         }

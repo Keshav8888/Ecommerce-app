@@ -139,6 +139,12 @@ body{
     font-size:18px;
     font-weight:bold;
     cursor:pointer;
+    transition:0.3s;
+}
+
+#productForm button:hover{
+	background:#0f5cd8;
+    transform:scale(1.03);
 }
 
 /* Products */
@@ -223,94 +229,76 @@ body{
     border:none;
     border-radius:6px;
     cursor:pointer;
+    transition:0.3s;
+}
+
+.edit-btn:hover{
+	background:#0f5cd8;
+    transform:scale(1.03);
 }
 
 .delete-btn{
     flex:1;
     padding:12px;
-    background:red;
+    background:#ff3b30;
     color:white;
     border:none;
     border-radius:6px;
     cursor:pointer;
+    transition:0.3s;
 }
 
-/* SUCCESS POPUP */
+.delete-btn:hover{
+	background:#d63031;
+    transform:scale(1.03);
+}
+
+/* Success PopUp */
 
 .success-popup-overlay{
-
     position:fixed;
-
     top:0;
-
     left:0;
-
     width:100%;
-
     height:100%;
-
     background:rgba(0,0,0,0.5);
-
     display:none;
-
     justify-content:center;
-
     align-items:center;
-
     z-index:9999;
 }
 
 .success-popup-box{
-
     position:relative;
-
     background:white;
-
     width:350px;
-
     padding:40px 25px;
-
     border-radius:18px;
-
     text-align:center;
-
     animation:popupOpen 0.3s ease;
 }
 
 .success-popup-box h2{
-
-    color:red;
-
+    color:green;
     font-size:28px;
-
     font-weight:bold;
 }
 
 .success-close-btn{
-
     position:absolute;
-
-    top:12px;
-
-    right:15px;
-
-    width:32px;
-
-    height:32px;
-
+    top:15px;
+    right:20px;
+    color:red;
     border:none;
-
-    border-radius:50%;
-
-    background:green;
-
-    color:white;
-
-    font-size:22px;
-
-    cursor:pointer;
-
+    background:none;
+    font-size:35px;
     font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.success-close-btn:hover{
+    transform:scale(1.1);
 }
 
 @keyframes popupOpen{

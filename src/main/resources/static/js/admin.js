@@ -7,7 +7,7 @@ if(!token){
     "login.html";
 }
 
-/* SUCCESS POPUP */
+/* Success PopUp */
 
 const successPopup =
 document.getElementById("successPopup");
