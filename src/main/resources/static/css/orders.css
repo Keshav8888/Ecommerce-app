@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+	background: #f1f3f6;
+}
+
+.navbar{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 18px 40px;
+	background: white;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo{
+	font-size: 30px;
+	font-weight: bold;
+	color: #2874f0;
+}
+
+.nav-links{
+	display: flex;
+	align-items:center;
+	gap: 25px;
+}
+
+.nav-links a{
+	text-decoration: none;
+	color: black;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#logoutBtn{
+    padding:10px 20px;
+    border:none;
+    background:red;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* HEADING */
+
+.heading{
+
+    padding:30px 50px 10px;
+}
+
+.heading h1{
+
+    margin:0;
+
+    font-size:38px;
+}
+
+/* ORDERS */
+
+.orders-container{
+
+    padding:20px 50px 50px;
+}
+
+/* CARD */
+
+.order-card{
+
+    background:white;
+
+    border-radius:10px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* TOP */
+
+.order-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.order-status{
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-weight:bold;
+}
+
+.pending{
+
+    background:orange;
+}
+
+.shipped{
+
+    background:#2874f0;
+}
+
+.delivered{
+
+    background: green;
+}
+
+.cancelled{
+
+    background:red;
+}
+
+/* ITEMS */
+
+.order-item{
+
+    display:flex;
+
+    gap:20px;
+
+    border-top:1px solid #ddd;
+
+    padding-top:20px;
+
+    margin-top:20px;
+}
+
+.order-image{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+}
+
+.order-details{
+
+    flex:1;
+}
+
+.product-name{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+}
+
+.company-name{
+
+    color:gray;
+
+    margin-bottom:10px;
+}
+
+.price{
+
+    color:#2874f0;
+
+    font-size:20px;
+
+    margin-bottom:10px;
+}
+
+.quantity{
+
+    font-size:17px;
+}
+
+/* TOTAL */
+
+.order-total{
+
+    text-align:right;
+
+    margin-top:20px;
+
+    font-size:24px;
+
+    font-weight:bold;
+}

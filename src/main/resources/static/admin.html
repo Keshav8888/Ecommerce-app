@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+	<nav class="navbar">
+		<div class="logo">
+			ShopEase Admin
+		</div>
+		
+		 <div class="nav-links">       
+        	<a href="admin-orders.html">
+            	Orders
+        	</a>       
+        	<button id="logoutBtn">
+            	Logout
+        	</button>
+    	</div>
+	</nav>
+	
+	<div class="admin-header">
+    	<div>
+        	<h1 id="welcomeMessage">
+            	Welcome Admin
+        	</h1>
+
+        	<p id="greetingMessage">
+            	Good Morning 🌅
+        	</p>
+    	</div>
+	</div>
+	
+	<div class="search-box">
+    	<input type="text" id="searchInput" placeholder="Search Products...">
+	</div>
+	
+	<!-- Add Product Section -->
+	<div class="admin-container">
+		<div class="form-section">
+			<h2>Add Product</h2>
+			<form id="productForm">
+				<input
+    				type="hidden"
+    				id="productId"
+				>
+				<input 
+					type="text"
+					id="companyName"
+					placeholder="Company Name"
+					required
+				>
+				<input
+					type="text"
+					id="productName"
+					placeholder="Product Name"
+					required
+				>
+				<input
+					type="number"
+					id="oldPrice"
+					placeholder="Old Price"
+					required
+				>
+				<input
+					type="number"
+					id="newPrice"
+					placeholder="New Price"
+					required
+				>
+				<input
+					type="number"
+					id="discount"
+					placeholder="Discount %"
+					required
+				>
+				<input
+					type="number"
+					step="0.1"
+					id="rating"
+					placeholder="Rating"
+					required
+				>
+				<input
+					type="text"
+					id="category"
+					placeholder="Category"
+					required
+				>
+				<input
+					type="file"
+					id="productImage"
+				>
+				<button type="submit" id="submitBtn">
+					Add Product
+				</button>
+			</form>
+		</div>
+		
+		<div>
+			<h2 class="products-heading">
+				All Products
+			</h2>	
+					
+			<div id="admin-products" class="products-container">
+				
+			</div>
+		</div>
+	</div>
+	
+	<!-- Edit Product -->
+
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close-btn">
+            &times;
+        </span>
+        <h2>Edit Product</h2>
+        <form id="editProductForm">
+            <input type="hidden" id="editProductId">
+            <input
+                type="text"
+                id="editCompanyName"
+                placeholder="Company Name"
+                required
+            >
+            <input
+                type="text"
+                id="editProductName"
+                placeholder="Product Name"
+                required
+            >
+            <input
+                type="number"
+                id="editOldPrice"
+                placeholder="Old Price"
+                required
+            >
+            <input
+                type="number"
+                id="editNewPrice"
+                placeholder="New Price"
+                required
+            >
+            <input
+                type="number"
+                id="editDiscount"
+                placeholder="Discount"
+                required
+            >
+            <input
+                type="number"
+                step="0.1"
+                id="editRating"
+                placeholder="Rating"
+                required
+            >
+            <input
+                type="text"
+                id="editCategory"
+                placeholder="Category"
+                required
+            >
+            <input
+                type="file"
+                id="editProductImage"
+            >
+            <div class="modal-buttons">
+                <button type="submit" class="update-btn">
+                    Update Product
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+	
+	<!-- SUCCESS POPUP -->
+
+<div id="successPopup" class="success-popup-overlay">
+
+    <div class="success-popup-box">
+
+        <button
+            id="closeSuccessPopup"
+            class="success-close-btn"
+        >
+            ×
+        </button>
+
+        <h2 id="successMessage">
+
+        </h2>
+
+    </div>
+
+</div>
+	
+	<script src="js/admin.js"></script>
+	
+</body>
+</html>

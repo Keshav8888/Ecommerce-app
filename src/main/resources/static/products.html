@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Products</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<nav class="navbar">
+		<div class="logo">
+			ShopEase
+		</div>
+		
+		<div class="nav-links">
+			<a href="#" id="homeLink">Home</a>
+			<a href="cart.html" id="cartLink">Cart</a>
+			<a href="orders.html" id="myOrdersLink">My Orders</a>
+		</div>
+	</nav>
+	
+	<div class="filter-container">
+		<select id="categoryFilter">
+			<option value="All">All Categories</option>
+			<option value="Clothing">Clothing</option>
+			<option value="Electronics">Electronics</option>
+			<option value="Household">Household</option>
+		</select>
+		  
+		<select id="priceSort">
+			<option value="">Sort By Price</option>
+			<option value="lowToHigh">Low To High</option>
+			<option value="highToLow">High To Low</option>
+		</select>
+	</div>
+	
+	<div class="search-box">
+    	<input type="text" id="searchInput" placeholder="Search Products...">
+	</div>
+	
+	<div id="products-container" class="products-container">
+	</div>
+	
+	<!-- Login Popup -->
+
+<div id="loginPopup" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <p class="popup-text">
+            Dear User,
+        </p>
+
+        <h2>
+            Please Login/Register First
+        </h2>
+
+        <div class="popup-buttons">
+
+            <button id="loginBtn">
+                Login
+            </button>
+
+            <button id="registerBtn">
+                Register
+            </button>
+
+            <button id="cancelPopupBtn">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+	
+	<!-- Cart Popup-->
+
+<div id="cartPopup" class="cart-popup-overlay">
+
+    <div class="cart-popup-box">
+
+        <button id="closeCartPopup" class="close-popup-btn">
+            ×
+        </button>
+
+        <h2>
+            Product Added To Cart
+        </h2>
+
+        <button id="goToCartBtn" class="goto-cart-btn">
+            Go To Cart
+        </button>
+
+    </div>
+
+</div>
+	
+	<script src="js/products.js"></script>
+</body>
+</html>

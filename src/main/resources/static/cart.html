@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cart</title>
+<link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+	<nav class="navbar">
+		<div class="logo">
+			ShopEase
+		</div>
+		
+		<div class="nav-links">
+			<a href="#" id="homeLink">Home</a>
+			<a href="products.html">Products</a>
+			<a href="orders.html" id="myOrdersLink">My Orders</a>
+		</div>
+	</nav>
+	
+	<div class="cart-page">
+		<div id="cart-items" class="cart-items">
+			
+		</div>
+		
+		<div class="price-box">
+			<h2>Price Details</h2>
+			<div class="price-row">
+				<span>MRP</span>
+				<span id="mrp">₹0</span>
+			</div>
+			
+			<div class="price-row">
+				<span>Discount</span>
+				<span id="discount">₹0</span>
+			</div>
+			
+			<div class="price-row total">
+				<span>Total Amount</span>
+				<span id="total">₹0</span>
+			</div>
+			
+			<div class="saved-box">
+				You Saved
+				<span id="savedAmount">₹0</span>
+				On this Order!!
+			</div>
+			
+			<button
+			class="place-order-btn"
+			onclick="placeOrder()"
+			>
+			Place Your Order
+			</button>
+			
+		</div>
+	</div>
+	
+	<!-- Order Success Popup -->
+
+<div id="orderPopup" class="order-popup-overlay">
+
+    <div class="order-popup-box">
+
+        <button id="closeOrderPopup" class="close-order-btn">
+            ×
+        </button>
+
+        <h1>
+            Congratulations! 🎉
+        </h1>
+
+        <p id="orderUserName" class="order-user-text">
+
+        </p>
+
+        <h2>
+            Your Order Placed Successfully!!
+        </h2>
+
+    </div>
+
+</div>
+	
+	<!-- Empty Cart Popup -->
+
+<div id="emptyCartPopup" class="empty-cart-overlay">
+
+    <div class="empty-cart-box">
+
+        <button id="closeEmptyCartPopup" class="close-empty-btn">
+            ×
+        </button>
+
+        <h2>
+            First Add A Product Here
+        </h2>
+
+    </div>
+
+</div>
+	
+	<script src="js/cart.js"></script>
+	
+</body>
+</html>
