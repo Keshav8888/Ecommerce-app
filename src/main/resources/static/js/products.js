@@ -9,7 +9,7 @@ document.getElementById("priceSort");
 
 let allProducts = [];
 
-/* ================= LOGIN POPUP ================= */
+/* Login PopUp */
 
 const loginPopup =
 document.getElementById("loginPopup");
@@ -101,7 +101,7 @@ goToCartBtn.addEventListener(
     }
 );
 
-/* ================= LOAD PRODUCTS ================= */
+/* Load Products */
 
 async function loadProducts() {
 
@@ -113,7 +113,7 @@ async function loadProducts() {
     displayProducts(allProducts);
 }
 
-/* ================= DISPLAY PRODUCTS ================= */
+/* Display Products */
 
 function displayProducts(products) {
 
@@ -174,13 +174,13 @@ function displayProducts(products) {
     });
 }
 
-/* ================= FILTER + SORT ================= */
+/* Filter and Sort */
 
 function applyFilters() {
 
     let filteredProducts = [...allProducts];
 
-    /* ===== CATEGORY FILTER ===== */
+    /* CATEGORY FILTER */
 
     const selectedCategory =
     categoryFilter.value;
@@ -193,7 +193,7 @@ function applyFilters() {
         );
     }
 
-    /* ===== PRICE SORT ===== */
+    /* PRICE SORT */
 
     const selectedSort =
     priceSort.value;
@@ -227,7 +227,7 @@ priceSort.addEventListener(
     applyFilters
 );
 
-/* ================= ADD TO CART ================= */
+/* Add To Cart */
 
 async function addToCart(product) {
 	
@@ -272,7 +272,7 @@ async function addToCart(product) {
 
 loadProducts();
 
-/* ================= HOME REDIRECT ================= */
+/* HOME REDIRECT */
 
 const homeLink = document.getElementById("homeLink");
 
@@ -292,7 +292,7 @@ if(homeLink){
     });
 }
 
-/* ================= SEARCH ================= */
+/* Search Box */
 
 const searchInput =
 document.getElementById("searchInput");
@@ -324,7 +324,7 @@ searchInput.addEventListener(
     }
 );
 
-/* ================= CART LINK ================= */
+/* CART LINK */
 
 const cartLink =
 document.getElementById("cartLink");
@@ -350,7 +350,7 @@ if(cartLink){
     );
 }
 
-/* ================= MY ORDERS ================= */
+/* My Orders */
 
 const myOrdersLink =
 document.getElementById("myOrdersLink");

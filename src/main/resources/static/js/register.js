@@ -56,18 +56,33 @@ registerForm.addEventListener(
             }
         );
 
-        if(response.ok){
+		const registerMessage =
+		document.getElementById("registerMessage");
+		
+		if(response.ok){
 
-            alert("Registration Successful");
+		    registerMessage.innerText =
+		    "Registration Successful";
 
-            window.location.href =
-            "login.html";
-        }
+		    registerMessage.style.color =
+		    "green";
 
-        else{
+		    setTimeout(function(){
 
-            alert("Registration Failed");
-        }
+		        window.location.href =
+		        "login.html";
+
+		    }, 1500);
+		}
+
+		else{
+
+		    registerMessage.innerText =
+		    "This Email is already registered";
+
+		    registerMessage.style.color =
+		    "red";
+		}
     }
 );
 

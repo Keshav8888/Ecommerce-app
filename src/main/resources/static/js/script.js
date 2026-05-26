@@ -176,114 +176,160 @@ indexCartLink.addEventListener(
     }
 );
 
-/* ================= SLIDER ================= */
+/* Slider */
 
-const sliderTrack =
-document.querySelector(".slider-track");
+/* ================= MULTIPLE SLIDERS ================= */
 
-const prevBtn =
-document.getElementById("prevBtn");
+const allSections =
+document.querySelectorAll(".home-products-section");
 
-const nextBtn =
-document.getElementById("nextBtn");
+allSections.forEach(function(section){
 
-const cards =
-document.querySelectorAll(".home-product-card");
+    const sliderTrack =
+    section.querySelector(".slider-track");
 
-/* SETTINGS */
+    const prevBtn =
+    section.querySelector(".left-btn");
 
-const cardWidth = 305;
+    const nextBtn =
+    section.querySelector(".right-btn");
 
-let currentIndex = 0;
+    const cards =
+    section.querySelectorAll(".home-product-card");
 
-/* TOTAL */
+    const container =
+    section.querySelector(".slider-container");
 
-const totalCards =
-cards.length;
+    let currentIndex = 0;
 
-/* HOW MANY CARDS FIT */
+    const gap = 25;
 
-const visibleCards =
-Math.floor(
-    document.querySelector(".slider-container")
-    .offsetWidth / cardWidth
-);
+    const cardWidth =
+    cards[0].offsetWidth;
 
-/* MAX INDEX */
+    const moveAmount =
+    cardWidth + gap;
 
-const maxIndex =
-totalCards - visibleCards;
+    const totalCards =
+    cards.length;
 
-/* UPDATE */
+    function getVisibleCards(){
 
-function updateSlider(){
+        return Math.floor(
+            container.offsetWidth / moveAmount
+        );
+    }
 
-    sliderTrack.style.transform =
-    `translateX(-${currentIndex * cardWidth}px)`;
+    function getMaxIndex(){
 
-    /* LEFT BUTTON */
+        return Math.max(
+            0,
+            totalCards - getVisibleCards()
+        );
+    }
 
-    prevBtn.disabled =
-    currentIndex === 0;
+    function updateSlider(){
 
-    prevBtn.style.opacity =
-    currentIndex === 0 ? "0.4" : "1";
+        const maxIndex =
+        getMaxIndex();
 
-    prevBtn.style.cursor =
-    currentIndex === 0
-    ? "not-allowed"
-    : "pointer";
+        if(currentIndex < 0){
 
-    /* RIGHT BUTTON */
+            currentIndex = 0;
+        }
 
-    nextBtn.disabled =
-    currentIndex >= maxIndex;
+        if(currentIndex > maxIndex){
 
-    nextBtn.style.opacity =
-    currentIndex >= maxIndex
-    ? "0.4"
-    : "1";
+            currentIndex = maxIndex;
+        }
 
-    nextBtn.style.cursor =
-    currentIndex >= maxIndex
-    ? "not-allowed"
-    : "pointer";
-}
+        sliderTrack.style.transform =
+        `translateX(-${currentIndex * moveAmount}px)`;
 
-/* NEXT */
+        /* LEFT BUTTON */
 
-nextBtn.addEventListener(
+        if(currentIndex === 0){
 
-    "click",
+            prevBtn.disabled = true;
 
-    function(){
+            prevBtn.style.opacity = "0.4";
 
-        if(currentIndex < maxIndex){
+            prevBtn.style.cursor =
+            "not-allowed";
+        }
 
-            currentIndex++;
+        else{
+
+            prevBtn.disabled = false;
+
+            prevBtn.style.opacity = "1";
+
+            prevBtn.style.cursor =
+            "pointer";
+        }
+
+        /* RIGHT BUTTON */
+
+        if(currentIndex >= maxIndex){
+
+            nextBtn.disabled = true;
+
+            nextBtn.style.opacity = "0.4";
+
+            nextBtn.style.cursor =
+            "not-allowed";
+        }
+
+        else{
+
+            nextBtn.disabled = false;
+
+            nextBtn.style.opacity = "1";
+
+            nextBtn.style.cursor =
+            "pointer";
+        }
+    }
+
+    nextBtn.addEventListener(
+
+        "click",
+
+        function(){
+
+            if(currentIndex < getMaxIndex()){
+
+                currentIndex++;
+
+                updateSlider();
+            }
+        }
+    );
+
+    prevBtn.addEventListener(
+
+        "click",
+
+        function(){
+
+            if(currentIndex > 0){
+
+                currentIndex--;
+
+                updateSlider();
+            }
+        }
+    );
+
+    window.addEventListener(
+
+        "resize",
+
+        function(){
 
             updateSlider();
         }
-    }
-);
+    );
 
-/* PREVIOUS */
-
-prevBtn.addEventListener(
-
-    "click",
-
-    function(){
-
-        if(currentIndex > 0){
-
-            currentIndex--;
-
-            updateSlider();
-        }
-    }
-);
-
-/* INITIAL */
-
-updateSlider();
+    updateSlider();
+});
