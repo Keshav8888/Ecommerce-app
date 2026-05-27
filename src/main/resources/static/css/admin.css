@@ -213,6 +213,16 @@ body{
     font-weight:bold;
 }
 
+.rating{
+	width: fit-content;
+    background: green;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 /* Buttons */
 
 .action-buttons{

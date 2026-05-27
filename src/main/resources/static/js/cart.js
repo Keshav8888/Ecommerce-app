@@ -1,4 +1,4 @@
-/* ================= LOGIN CHECK ================= */
+/* LOGIN CHECK */
 
 const token =
 localStorage.getItem("token");
@@ -175,12 +175,14 @@ function displayCartItems() {
 
 /* ================= REMOVE ================= */
 
-async function removeItem(id) {
+/*async function removeItem(id) {
 
     const token =
-    localStorage.getItem("token");
+    localStorage.getItem("token");*/
+	
+	/* FIND PRODUCT BEFORE DELETE */
 
-    await fetch(
+    /*await fetch(
 
         `http://localhost:8080/cart/remove/${id}`,
 
@@ -194,12 +196,57 @@ async function removeItem(id) {
                 `Bearer ${token}`
             }
         }
-    );
-
+    );*/
+	
     /* loadCart(); */
-	if(token){
+	/*if(token){
 	    loadCart();
 	}
+}*/
+async function removeItem(id) {
+
+    const token =
+    localStorage.getItem("token");
+
+    /* FIND PRODUCT BEFORE DELETE */
+
+    const removedProduct =
+    cartItems.find(item => item.id === id);
+
+    /* REMOVE FROM LOCAL STORAGE */
+
+    let cartProducts =
+    JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    cartProducts =
+    cartProducts.filter(
+        productName =>
+        productName !== removedProduct.productName
+    );
+
+    localStorage.setItem(
+        "cartProducts",
+        JSON.stringify(cartProducts)
+    );
+
+    await fetch(`http://localhost:8080/cart/remove/${id}`,
+
+	        {
+
+	            method:"DELETE",
+
+	            headers:{
+
+	                "Authorization":
+	                `Bearer ${token}`
+	            }
+	        }
+	    );
+		
+	    /* loadCart(); */
+		if(token){
+		    loadCart();
+		}
 }
 
 /* ================= UPDATE QUANTITY ================= */
@@ -326,11 +373,14 @@ async function placeOrder() {
 	        );
 
 	        if(response.ok){
-	            /*alert("Order Placed Successfully"); */
+				
 				showOrderPopup();
 
-	            /* Reload Empty Cart */
+				/* CLEAR LOCAL STORAGE CART */
 
+				localStorage.removeItem("cartProducts");
+				
+	            /* Reload Empty Cart */
 	            loadCart();
 	        }
 	        else{

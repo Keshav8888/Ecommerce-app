@@ -154,7 +154,7 @@ async function loadProducts() {
 	displayProducts(allProducts);
 }
 
-/* ================= DISPLAY ================= */
+/* Display Product */
 
 function displayProducts(products) {
 
@@ -197,7 +197,7 @@ function displayProducts(products) {
 
                 </div>
 
-                <div>
+                <div class="rating">
                     ⭐ ${product.rating}
                 </div>
 
