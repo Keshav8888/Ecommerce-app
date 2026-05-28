@@ -77,6 +77,65 @@ goToCartBtn.addEventListener(
     }
 );
 
+/* ================= SYNC CART PRODUCTS ================= */
+
+async function syncCartProducts(){
+
+    const token =
+    localStorage.getItem("token");
+
+    /* USER NOT LOGGED IN */
+
+    if(!token){
+
+        localStorage.removeItem("cartProducts");
+
+        return;
+    }
+
+    try{
+
+        const response =
+        await fetch(
+
+            "http://localhost:8080/cart",
+
+            {
+
+                headers:{
+
+                    "Authorization":
+                    `Bearer ${token}`
+                }
+            }
+        );
+
+        const cartItems =
+        await response.json();
+
+        /* GET PRODUCT NAMES */
+
+        const cartProductNames =
+        cartItems.map(item => item.productName);
+
+        /* UPDATE LOCAL STORAGE */
+
+        localStorage.setItem(
+
+            "cartProducts",
+
+            JSON.stringify(cartProductNames)
+        );
+    }
+
+    catch(error){
+
+        console.log(
+            "Cart Sync Failed"
+        );
+    }
+}
+
 /* Load Products */
 
 async function loadProducts() {
@@ -259,7 +318,16 @@ async function addToCart(product) {
 
 /* ================= INITIAL LOAD ================= */
 
-loadProducts();
+/*loadProducts();*/
+
+async function initializePage(){
+
+    await syncCartProducts();
+
+    await loadProducts();
+}
+
+initializePage();
 
 /* HOME REDIRECT */
 
