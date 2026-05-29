@@ -333,3 +333,24 @@ allSections.forEach(function(section){
 
     updateSlider();
 });
+
+/*Scroll To Top Button*/
+const scrollTopBtn =
+document.getElementById("scrollTopBtn");
+
+scrollTopBtn.addEventListener(
+
+    "click",
+
+    function(){
+
+        window.scrollTo({
+            top: 0,
+
+            behavior: "smooth"
+        });
+    }
+);
+
+/* footer */
+document.getElementById("year").innerText = new Date().getFullYear();
