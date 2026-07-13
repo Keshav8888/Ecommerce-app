@@ -48,15 +48,13 @@ public class AuthController {
 
         User loggedUser = userService.loginUser(user.getEmail(),user.getPassword());
 
-        String token = jwtUtil.generateToken(loggedUser.getEmail(),loggedUser.getRole()
-        );
+        String token = jwtUtil.generateToken(loggedUser.getEmail(),loggedUser.getRole());
 
         java.util.Map<String, String> response = new java.util.HashMap<>();
 
         response.put("token", token);
 
-        response.put("role",loggedUser.getRole().name()
-        );
+        response.put("role",loggedUser.getRole().name());
 
         response.put("name",loggedUser.getName());
 
